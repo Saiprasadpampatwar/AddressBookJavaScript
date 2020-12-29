@@ -247,3 +247,6 @@ function findAndDeleteContact(firstName) {
 findAndDeleteContact("Bill");
 console.log(addressBookArray);
   
+
+let countContact = addressBookArray.reduce((count ) => count += 1 , 0);
+console.log(countContact);
