@@ -260,13 +260,44 @@ let contactToBeAdded = new ContactDetails(
     "343422",
     "91 8787877890",
     "gigi@msw.com"
-  );
+);
   
-  let duplicateCheck = addressBookArray.find(element => element.firstName == contactToBeAdded.firstName);
-  if(duplicateCheck != null)
-      console.log("Duplicate element cannot be added");
-  else
-      addressBookArray.push(contactToBeAdded); 
+let duplicateCheck = addressBookArray.find(element => element.firstName == contactToBeAdded.firstName);
+if(duplicateCheck != null)
+    console.log("Duplicate element cannot be added");
+else
+    addressBookArray.push(contactToBeAdded); 
+
+
+console.log(addressBookArray);
+
+
+function searchContactByCityOrState(property, value, AddressBook) {
+let addressBookFilter;
+switch (property) {
+    case "city":
+    addressBookFilter = addressBookArray.filter(
+        (contact) => contact.city == value
+    );
+    break;
+    case "state":
+    addressBookFilter = addressBookArray.filter(
+        (contact) => contact.state == value
+    );
+    break;
+}
+return addressBookFilter;
+}
   
+let contacts = searchContactByCityOrState(
+"city",
+"San Francisco",
+addressBookArray
+);
+contacts.forEach((foundCityPerson) =>
+console.log(foundCityPerson.firstName + " " + foundCityPerson.lastname)
+);
   
-  console.log(addressBookArray);
+contacts = searchContactByCityOrState("state", "Wales", addressBookArray);
+contacts.forEach((foundCityPerson) =>
+console.log(foundCityPerson.firstName + " " + foundCityPerson.lastname));
