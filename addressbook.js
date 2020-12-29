@@ -231,12 +231,19 @@ function editContact(contact, newValue, property) {
     } catch (e) {
       console.error("Unable to edit Contact");
     }
-  }
+}
   
-  let contact = findContact("Bill");
+let contact = findContact("Bill");
+editContact(contact,"Dnya","lastName");
+//console.log(contact.toString());
+
+
   
+function findAndDeleteContact(firstName) {
+    let contact = findContact(firstName);
+    addressBookArray.splice(addressBookArray.indexOf(contact), 1);
+}
   
-  editContact(contact,"Dnya","lastName");
-  
-  console.log(contact.toString());
+findAndDeleteContact("Bill");
+console.log(addressBookArray);
   
