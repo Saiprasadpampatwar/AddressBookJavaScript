@@ -250,3 +250,23 @@ console.log(addressBookArray);
 
 let countContact = addressBookArray.reduce((count ) => count += 1 , 0);
 console.log(countContact);
+
+let contactToBeAdded = new ContactDetails(
+    "Bill",
+    "Dnya",
+    "Pallemo",
+    "North London",
+    "London",
+    "343422",
+    "91 8787877890",
+    "gigi@msw.com"
+  );
+  
+  let duplicateCheck = addressBookArray.find(element => element.firstName == contactToBeAdded.firstName);
+  if(duplicateCheck != null)
+      console.log("Duplicate element cannot be added");
+  else
+      addressBookArray.push(contactToBeAdded); 
+  
+  
+  console.log(addressBookArray);
