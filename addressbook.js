@@ -184,4 +184,59 @@ try {
 } catch (e) {
   console.error(e);
 }
-console.log(addressBookArray.toString());
+//console.log(addressBookArray.toString());
+
+
+function findContact(firstName) {
+    let contactObj;
+    addressBookArray.forEach((contact) => {
+      if (contact.firstName == firstName ) {
+        contactObj = contact;
+      }
+    });
+    return contactObj;
+}
+
+
+function editContact(contact, newValue, property) {
+    try {
+      switch (property) {
+        case "firstName":
+          contact.firstName = newValue;
+          break;
+        case "lastName":
+          contact.lastname = newValue;
+          break;
+        case "address":
+          contact.address = newValue;
+          break;
+        case "city":
+          contact.city = newValue;
+          break;
+        case "state":
+          contact.state = newValue;
+          break;
+        case "zip":
+          contact.zip = newValue;
+          break;
+        case "phoneNumber":
+          contact.phoneNumber = newValue;
+          break;
+        case "email":
+          contact.email = newValue;
+          break;
+        default:
+          break;
+      }
+    } catch (e) {
+      console.error("Unable to edit Contact");
+    }
+  }
+  
+  let contact = findContact("Bill");
+  
+  
+  editContact(contact,"Dnya","lastName");
+  
+  console.log(contact.toString());
+  
