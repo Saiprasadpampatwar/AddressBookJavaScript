@@ -301,3 +301,11 @@ console.log(foundCityPerson.firstName + " " + foundCityPerson.lastname)
 contacts = searchContactByCityOrState("state", "Wales", addressBookArray);
 contacts.forEach((foundCityPerson) =>
 console.log(foundCityPerson.firstName + " " + foundCityPerson.lastname));
+
+function countByCityOrState(property, value, AddressBook){
+    let contactsGot = searchContactByCityOrState(property,value,AddressBook);
+    let countByCityOrState = contactsGot.reduce((count ) => count += 1 , 0);
+    console.log("Contacts in "+value+" are: "+countByCityOrState);
+}
+
+countByCityOrState("state", "Wales", addressBookArray);
