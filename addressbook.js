@@ -309,3 +309,24 @@ function countByCityOrState(property, value, AddressBook){
 }
 
 countByCityOrState("state", "Wales", addressBookArray);
+
+function sortingBasedOnProperty(property){
+    switch(property){
+        case "firstName":
+            addressBookArray.sort((a,b) => {
+                let fa = a.firstName.toLowerCase(),
+                fb = b.firstName.toLowerCase();
+
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            });
+            addressBookArray.forEach(x => console.log(x.toString()));
+    }
+}
+
+sortingBasedOnProperty("firstName");
