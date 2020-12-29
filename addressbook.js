@@ -325,8 +325,62 @@ function sortingBasedOnProperty(property){
                 }
                 return 0;
             });
+            console.log("sorting based on first name");
             addressBookArray.forEach(x => console.log(x.toString()));
+            break;
+        case "city":
+            addressBookArray.sort((a,b) => {
+                let fa = a.city.toLowerCase(),
+                fb = b.city.toLowerCase();
+
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log("sorting based on city");
+            addressBookArray.forEach(x => console.log(x.toString()));
+            break;
+        case "state":
+            addressBookArray.sort((a,b) => {
+                let fa = a.state.toLowerCase(),
+                fb = b.state.toLowerCase();
+
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log("sorting based on state");
+            addressBookArray.forEach(x => console.log(x.toString()));
+            break;
+        case "zip":
+            addressBookArray.sort((a,b) => {
+                let fa = a.zip,
+                fb = b.zip;;
+
+                if (fa < fb) {
+                    return -1;
+                }
+                if (fa > fb) {
+                    return 1;
+                }
+                return 0;
+            });
+            console.log("sorting based on ZIP");
+            addressBookArray.forEach(x => console.log(x.toString()));
+            break;
+        
     }
 }
 
 sortingBasedOnProperty("firstName");
+sortingBasedOnProperty("city");
+sortingBasedOnProperty("state");
+sortingBasedOnProperty("zip");
